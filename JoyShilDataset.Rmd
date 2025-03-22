@@ -1,0 +1,68 @@
+---
+title: "Project3_JoyShillJobsDataset"
+author: "Jerald Melukkaran"
+date: "2025-03-22"
+output: html_document
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(stringr)
+```
+
+### Introduction 
+
+
+### Data handling 
+
+We import the data set, get only the columns experience level for weighing the skills, and the skills column
+
+```{r echo=FALSE}
+# Import the CSV file
+data <- read_csv("joyshil_dataset.csv")  
+
+# Select only the desired columns
+df3 <- data[, c("Experience level", "Requirment of the company")]
+
+## This is the list of basic skills that can be ignored for this analysis 
+ignore_list <- c("Computer Science", "Engineering", "Information Technology", "")
+
+## This is required as initially when i tried pivot longer, there were still some skills not being split and pivoted, turns out the commas that were being used were a different encoding 
+df3 <- df3 %>%
+  mutate(`Requirment of the company` = str_replace_all(`Requirment of the company`, "[^,[:alnum:] ]", ","))  
+
+## We pivot long 
+df3_long <- df3 %>%
+  separate_rows(`Requirment of the company`,  sep = ",\\s*")
+
+```
+
+
+
+```{r echo=FALSE}
+# Assign weights based on experience level
+df3_long <- df3_long %>%
+  mutate(weight = case_when(
+    `Experience level` == "Senior-level" ~ 3,
+    `Experience level` == "Mid-level" ~ 2,
+    TRUE ~ 1  # Entry-level or empty experience gets a weight of 1
+  )) %>%
+  # Remove blank requirements and basic skills 
+  filter(!(`Requirment of the company` %in% ignore_list) & 
+           str_trim(`Requirment of the company`) != "")
+
+# Count the occurrences of each requirement with weights
+requirement_counts <- df3_long %>%
+  group_by(`Requirment of the company`) %>%
+  summarise(weighted_count = sum(weight, na.rm = TRUE)) %>%
+  arrange(desc(weighted_count))  # Sort in descending order
+
+# View the results and write to a csv 
+print(requirement_counts)
+write_csv(requirement_counts, "joyshil_dataset_skills.csv")
+```
+

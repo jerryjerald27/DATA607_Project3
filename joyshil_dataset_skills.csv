@@ -1,0 +1,289 @@
+Requirment of the company,weighted_count
+AWS,2103
+Architecture,1958
+Big Data,1467
+Agile,1415
+Data analysis,1358
+Azure,1274
+Machine Learning,1229
+Business Intelligence,1054
+APIs,919
+Data Analytics,873
+Data pipelines,768
+Airflow,760
+Deep Learning,740
+Consulting,733
+Excel,726
+Data visualization,701
+Python,648
+Data quality,584
+Data management,564
+CD,513
+CI,513
+BigQuery,511
+Finance,481
+Computer Vision,472
+Databricks,461
+Data Mining,459
+Banking,419
+Data governance,416
+Economics,414
+Mathematics,413
+ETL,411
+A,358
+B testing,358
+Classification,358
+CX,344
+Research,336
+SQL,324
+Power BI,313
+E,303
+commerce,297
+Data warehouse,287
+Docker,275
+GCP,257
+R,243
+Blockchain,235
+DevOps,229
+Data Warehousing,224
+Clustering,221
+Genetics,216
+Privacy,215
+Crypto,212
+ML models,212
+Looker,189
+PhD,189
+Git,174
+Business Analytics,160
+Security,155
+Industrial,153
+Distributed Systems,152
+KPIs,152
+Linux,149
+Athena,145
+LLMs,135
+Hadoop,132
+Testing,130
+DataOps,123
+Data strategy,122
+Statistics,122
+JavaScript,121
+Causal inference,120
+NLP,120
+Biology,119
+FinTech,112
+Cassandra,111
+Ansible,109
+EDA,106
+ELT,106
+Pipelines,103
+GitHub,93
+Google Cloud,92
+Angular,86
+Chatbots,86
+Consulting firm,85
+Kubernetes,85
+Robotics,84
+Data Studio,83
+Elasticsearch,79
+Oracle,77
+Tableau,73
+Bayesian,72
+CUDA,66
+Kafka,66
+Jira,62
+Dataflow,60
+Market research,60
+Autonomous Driving,59
+Bitbucket,57
+BERT,56
+Spark,52
+Amplitude,50
+Econometrics,50
+Feature engineering,47
+GPT,46
+Snowflake,46
+Keras,45
+Chemistry,44
+Matlab,44
+Pandas,42
+Physics,42
+Content creation,40
+NumPy,40
+Driver,39
+s license,39
+Flink,36
+Avro,34
+RDBMS,34
+ChatGPT,33
+OOP,32
+Credit risk,31
+EC2,31
+D,30
+GitLab,30
+Lidar,30
+ML infrastructure,30
+MLOps,30
+ASR,28
+MongoDB,28
+Open Source,28
+Drug discovery,27
+GPU,27
+Generative modeling,27
+Kanban,27
+MySQL,27
+Bigtable,25
+API Development,24
+Conversational AI,24
+Predictive modeling,24
+Qlik,24
+SAS,24
+D3,23
+Dagster,23
+DynamoDB,23
+Jupyter,23
+Matplotlib,23
+Prototyping,23
+React,23
+Caffe,22
+Golang,22
+JSON,22
+QlikView,22
+AI strategy,21
+Healthcare technology,21
+OKR,21
+PostgreSQL,20
+DataRobot,19
+JAX,19
+Metabase,19
+Scala,19
+AGI,18
+CAD,18
+Drones,18
+Redshift,18
+Scrum,18
+Cybernetics,16
+Kubeflow,16
+Circuit Design,15
+Cluster analysis,15
+Dataproc,15
+Diffusion models,15
+FiveTran,15
+MS SQL,15
+PHP,15
+Perl,15
+ICML,14
+Julia,14
+Model design,14
+PySpark,14
+Core ML,13
+Model training,13
+Nonprofit,13
+CSV,12
+ECS,12
+Fraud risk,12
+Haystack,12
+HuggingFace,12
+Microservices,12
+OpenAI,12
+ICLR,11
+MLFlow,11
+PyTorch,11
+ANN,10
+NoSQL,10
+3D Reconstruction,9
+3D graphics,9
+Azkaban,9
+CMake,9
+Django,9
+EMNLP,9
+HDFS,9
+TypeScript,9
+AI governance,8
+Airtable,8
+Flask,8
+Linear algebra,8
+SDLC,8
+SLAM,8
+SharePoint,8
+Streaming,8
+Elixir,7
+Informatica,7
+LangChain,7
+LookML,7
+OpenCV,7
+Unstructured data,7
+VR,7
+C,6
+Clojure,6
+DALL,6
+LightGBM,6
+NLTK,6
+Plotly,6
+Teaching,6
+AI art,5
+Biochemistry,5
+Grafana,5
+ITIL,5
+Lambda,5
+MXNet,5
+NET,5
+Ruby,5
+SSIS,5
+TensorFlow,5
+XML,5
+fastai,5
+AIStats,4
+Autoregressive models,4
+Machine intelligence,4
+Periscope,4
+Arrow,3
+CoreML,3
+DB2,3
+DICOM,3
+ELK,3
+HBase,3
+HPC,3
+Kibana,3
+Kinesis,3
+Maven,3
+Minitab,3
+Model deployment,3
+Model inference,3
+Node,3
+OCR,3
+OLAP,3
+Pentaho,3
+Recommender systems,3
+SIMD,3
+STEM,3
+Transformers,3
+Travel,3
+UX,3
+Vue,3
+XSD,3
+cuDNN,3
+js,3
+3,2
+4,2
+Alpaca,2
+Anaconda,2
+GANs,2
+HiveQL,2
+Horovod,2
+ISO 27001,2
+KNIME,2
+Lua,2
+NLG,2
+NeurIPS,2
+AI content,1
+Clinical NLP,1
+Copywriting,1
+Fortran,1
+GloVe,1
+Parquet,1
+REST API,1
+SDL,1
+Splunk,1
+TDD,1
+Teradata,1
