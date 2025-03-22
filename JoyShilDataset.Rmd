@@ -23,7 +23,7 @@ We import the data set, get only the columns experience level for weighing the s
 
 ```{r echo=FALSE}
 # Import the CSV file
-data <- read_csv("joyshil_dataset.csv")  
+data <- read_csv("https://github.com/jerryjerald27/DATA607_Project3/blob/main/joyshil_dataset.csv")  
 
 # Select only the desired columns
 df3 <- data[, c("Experience level", "Requirment of the company")]
