@@ -1,0 +1,181 @@
+---
+title: "Data Cleanup Project3"
+author: "Miraj Patel"
+date: "2025-03-22"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r load library}
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(stringr)
+```
+
+## Data cleanup
+
+Dataset 1: Year 2024
+
+```{r}
+#Import the files
+data1 <- read.csv("https://raw.githubusercontent.com/jerryjerald27/DATA607_Project3/refs/heads/main/job_postings.csv")
+data1_1 <- read.csv("https://raw.githubusercontent.com/jerryjerald27/DATA607_Project3/refs/heads/main/job_skills.csv")
+
+#combine the two files
+df1 <- cbind(data1, data1_1)
+
+#Desired columns
+df2 <- df1[, c("job_skills", "job_level")]
+
+# Count unique job levels and their frequencies
+df2_job_level_counts <- df2 %>%
+  group_by(job_level) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+
+print(df2_job_level_counts)
+
+# Separate multiple skills into individual rows
+df2_job_skills_counts <- df2 %>%
+  separate_rows(job_skills, sep = ",") %>% 
+  mutate(job_skills = str_remove_all(job_skills, "\\*") %>% trimws()) %>%  # Remove "*"
+  filter(!str_detect(job_skills, "\\b\\d{2,4}\\b|\\byears?\\b")) %>%  # Remove skills with years
+  filter(job_skills != "") %>% 
+  group_by(job_skills) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+
+head(df2_job_skills_counts)
+
+#Plot 25 most frequent skills
+ggplot(df2_job_skills_counts %>% slice_max(count, n = 25), aes(x = reorder(job_skills, count), y = count)) +
+  geom_bar(stat = "identity", fill = "gray") +
+  coord_flip() +  # Flip axis for better readability
+  labs(title = "Top 25 Job Skills Frequency",
+       x = "Job Skill",
+       y = "Count") +
+  theme_minimal()
+```
+
+Dataset 2: Year 2023
+```{r}
+#Import file
+data2 <- read.csv("https://raw.githubusercontent.com/jerryjerald27/DATA607_Project3/refs/heads/main/postings.csv")
+
+#Desired columns
+df3 <- data2[, c("job_skills","job.level")]
+
+# Count unique job levels and their frequencies
+df3_job.level_counts <- df3 %>%
+  group_by(job.level) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+
+print(df3_job.level_counts)
+
+# Separate multiple skills into individual rows
+df3_job_skills_counts <- df3 %>%
+  separate_rows(job_skills, sep = ",") %>% 
+  mutate(job_skills = str_remove_all(job_skills, "\\*") %>% trimws()) %>%  # Remove "*"
+  filter(!str_detect(job_skills, "\\b\\d{2,4}\\b|\\byears?\\b")) %>%  # Remove skills with years
+  filter(job_skills != "") %>% 
+  group_by(job_skills) %>%
+  summarise(count = n()) %>%
+  arrange(desc(count))
+
+head(df3_job_skills_counts)
+
+#Plot 25 most frequent skills
+ggplot(df3_job_skills_counts %>% slice_max(count, n = 25), aes(x = reorder(job_skills, count), y = count)) +
+  geom_bar(stat = "identity", fill = "gray") +
+  coord_flip() +  # Flip axis for better readability
+  labs(title = "Top 25 Job Skills Frequency",
+       x = "Job Skill",
+       y = "Count") +
+  theme_minimal()
+
+```
+
+Combine the counts for the job skills
+
+```{r}
+# Merge the two dataframes on job_skills
+combined_job_skills <- full_join(df2_job_skills_counts, df3_job_skills_counts, 
+                                        by = "job_skills", suffix = c("_df2", "_df3"))
+
+# Replace NA values with 0 and sum the counts
+combined_job_skills_counts <- combined_job_skills %>%
+  mutate(count_df2 = ifelse(is.na(count_df2), 0, count_df2),
+         count_df3 = ifelse(is.na(count_df3), 0, count_df3),
+         total_count = count_df2 + count_df3) %>%
+  select(job_skills, total_count) %>%
+  arrange(desc(total_count))
+
+# Display the top job skills
+head(combined_job_skills_counts)
+
+#Plot top 25 combined skills
+ggplot(combined_job_skills_counts %>% slice_max(count, n = 25), aes(x = reorder(job_skills, count), y = count)) +
+  geom_bar(stat = "identity", fill = "gray") +
+  coord_flip() +  # Flip axis for better readability
+  labs(title = "Top 25 Job Skills Frequency",
+       x = "Job Skill",
+       y = "Count") +
+  theme_minimal()
+```
+
+Difference between the two data sets. This will show the increase or decrease in the job skills from 2023 to 2024.
+```{r}
+# Replace NA values with 0 and find the difference in counts
+difference_job_skills_counts <- combined_job_skills %>%
+  mutate(count_df2 = ifelse(is.na(count_df2), 0, count_df2),
+         count_df3 = ifelse(is.na(count_df3), 0, count_df3),
+         total_count = count_df2 - count_df3) %>%
+  select(job_skills, total_count) %>%
+  arrange(desc(total_count))
+
+# Select the top 25 positive and negative total_count values
+top_positive <- difference_job_skills_counts %>% slice_max(total_count, n = 25)
+top_negative <- difference_job_skills_counts %>% slice_min(total_count, n = 25)
+
+# Table for positive changes
+table_positive <- top_positive %>%
+  select(job_skills, total_count) %>%
+  rename("Job Skill" = job_skills, "Increase in Frequency" = total_count)
+
+# Plot for Positive Changes
+plot_positive <- ggplot(top_positive, aes(x = reorder(job_skills, total_count), y = total_count)) +
+  geom_bar(stat = "identity", fill = "green") +
+  coord_flip() +
+  labs(title = "Top 25 Increases in Job Skills",
+       x = "Job Skill",
+       y = "Increase in Frequency") +
+  theme_minimal()
+
+# Table for negative changes
+table_negative <- top_negative %>%
+  select(job_skills, total_count) %>%
+  rename("Job Skill" = job_skills, "Decrease in Frequency" = total_count)
+
+# Plot for Negative Changes
+plot_negative <- ggplot(top_negative, aes(x = reorder(job_skills, total_count), y = total_count)) +
+  geom_bar(stat = "identity", fill = "red") +
+  coord_flip() +
+  labs(title = "Top 25 Decreases in Job Skills",
+       x = "Job Skill",
+       y = "Decrease in Frequency") +
+  theme_minimal()
+
+print(table_positive)
+print(plot_positive)
+print(table_negative)
+print(plot_negative)
+
+```
+
+
+
