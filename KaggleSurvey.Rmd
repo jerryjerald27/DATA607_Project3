@@ -1,0 +1,222 @@
+---
+title: "Kaggle survey"
+author: "Jerald Melukkaran"
+date: "2025-03-22"
+output: html_document
+---
+
+```{r warning=FALSE, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(readr)
+library(stringr)
+```
+
+#### Introduction 
+
+The data set we are going to analyse in this part of the project is a Kaggle Data science and Machine learning survey that has around 20,000 responses from 171 different countries . The questions for the survey mainly revolved around the different data science and amchine learning technologies and skills that were being commonly used among a large variety of people with different educational and work related backgrounds. 
+
+We intend to use this data to analyse first how data skill proportion across different categories compare between students and non students. And further how it compares to our previous datasets that involve job posting skills 
+
+#### Data tidying and cleanup 
+
+This a great source of information albeit having a weirdly structured data set. Each multiple choice question in this survey is split into a certain number of columns depending on how many choicses there are. For eg Question 7 , a question about the programnming languages being used has 13 options , and each of these options get their own column named Q7_PART_1 to Q7_Part_12 and then one for the option "Other" named Q7_Other.  
+
+The first task is to separate out only the Question columns relevant to Data science skill, Education and Work. We also drop fields where the Work column specifies not employed. 
+ 
+```{r echo=FALSE}
+data <- read_csv("C:/Jerald/Colelge/Semester 1/DATA607_Project3/kaggle_survey.csv", )  
+
+
+relevant_columns <- grep("^Q4|^Q5|^Q7|^Q9|^Q10|^Q14|^Q16|^Q17|^Q18|^Q19|^Q26|^Q28|^Q29|^Q31|^Q34", 
+                         names(data), value = TRUE, ignore.case = TRUE)
+
+df4 <- data %>%
+  select(all_of(relevant_columns))
+
+df4 <- df4 %>% slice(-1) %>%
+  rename(Education = Q4, Work = Q5)
+
+df4 <- df4[df4$Work != "Currently not employed", ]
+head(df4)
+```
+
+
+Our next task is to combine the Question columns so that every multiple choice answer for a particular question can be represented in just one column with the answers seperated by commas. We can then name this column with the particular skill category that is being addressed with this question 
+
+```{r echo=FALSE}
+data_long <- df4 %>%
+  pivot_longer(cols = starts_with("Q"), 
+               names_to = "Question_Part", 
+               values_to = "Answer") %>%
+  mutate(Question = gsub("_.*", "", Question_Part)) %>%  
+  filter(!is.na(Answer) & Answer != "Other" & Answer != "None" & Answer != "NA") %>%  
+  group_by(Work, Education, Question) %>% 
+  summarise(Combined_Answer = paste(Answer, collapse = ", "), .groups = 'drop') %>%
+  pivot_wider(names_from = Question, values_from = Combined_Answer)
+
+
+name_mapping <- c(
+  "Q7" = "Programming language",
+  "Q9" = "IDE",
+  "Q10" = "Notebook products",
+  "Q14" = "Visualisation tools",
+  "Q16" = "Learning frameworks",
+  "Q17" = "ML algorithms",
+  "Q18" = "Computer vision",
+  "Q19" = "NLP methods",
+  "Q26" = "Cloud computing",
+  "Q28" = "Machine learning",
+  "Q29" = "Big data products",
+  "Q31" = "BI tools",
+  "Q34" = "AML tools"
+)
+
+colnames(data_long) <- sapply(colnames(data_long), function(x) ifelse(x %in% names(name_mapping), name_mapping[x], x))
+print(data_long)
+
+```
+
+Now that we have the skills all distributed in their right category, we can calculate their frequency to understand how certain skills categories are more commonly expressed. 
+
+```{r echo=FALSE}
+count_answers <- function(cell) {
+  answers <- strsplit(cell, ",\\s*")[[1]]
+  return(length(answers))  
+}
+
+data_long_updated <- data_long %>%
+  mutate(across(.cols = -c(Education, Work),  
+                .fns = ~ sapply(., count_answers)))  
+print(data_long_updated)
+```
+
+We can also now start separating the Students from the non students and plot a bar chart to see how the different skill categories compare in frequency.  
+
+```{r echo=FALSE}
+student_data <- data_long_updated %>%
+  filter(Work == "Student")  
+non_student_data <- data_long_updated %>%
+  filter(Work != "Student")  
+
+student_skill_summary <- student_data %>%
+  select(-Education) %>%
+  summarise(across(-Work, sum)) %>%
+  pivot_longer(cols = everything(), 
+               names_to = "Skill name", 
+               values_to = "Skill count") %>%
+  mutate(Work = "Student")  
+
+non_student_skill_summary <- non_student_data %>%
+  select(-Education) %>%
+  summarise(across(-Work, sum)) %>%
+  pivot_longer(cols = everything(), 
+               names_to = "Skill name", 
+               values_to = "Skill count") %>%
+  mutate(Work = "Non-Student")  
+
+combined_skill_summary <- bind_rows(student_skill_summary, non_student_skill_summary)
+
+print(combined_skill_summary)
+combined_skill_summary <- combined_skill_summary %>%
+  mutate(`Skill name` = factor(`Skill name`, 
+                               levels = combined_skill_summary %>%
+                                 filter(Work == "Non-Student") %>%
+                                 arrange(desc(`Skill count`)) %>%
+                                 pull(`Skill name`)))
+
+ggplot(combined_skill_summary, aes(x = `Skill name`, y = `Skill count`, fill = Work)) +
+  geom_bar(stat = "identity", position = "dodge") +  
+  labs(title = "Skill Distribution: Students vs Non-Students", 
+       x = "Skill", 
+       y = "Skill frequency") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1),  
+        legend.title = element_blank()) + 
+  scale_fill_manual(values = c("Student" = "skyblue", "Non-Student" = "lightgreen"))  
+```
+
+While we can notice a trend in the distribution of different data science skill categories, we also notice a major disparity between the students and non students. Initially we assumed that this might just be because people at work might tend to have skillset that is much wider reaching than a students, we immediately noticed the other issue , the disparity in numbers between students and non students.  
+
+In this dataset we have a lot more non-students than students. So its essential that we normalise the data to get a better representation of the skill set distribution 
+
+<!-- Normalising for the numbers we get  -->
+
+<!-- ```{r} -->
+<!-- total_students <- df4 %>%  -->
+<!--   filter(Work == "Student") %>%  -->
+<!--   nrow() -->
+<!-- total_non_students <- df4 %>%  -->
+<!--   filter(Work != "student") %>%  -->
+<!--   nrow() -->
+
+<!-- normalized_skill_summary <- combined_skill_summary %>% -->
+<!--   mutate(`Normalized Skill count` = case_when( -->
+<!--     Work == "Student" ~ `Skill count` / total_students,  -->
+<!--     Work == "Non-Student" ~ `Skill count` / total_non_students -->
+<!--   )) -->
+
+<!-- normalized_skill_summary <- normalized_skill_summary %>% -->
+<!--   mutate(`Skill name` = factor(`Skill name`,  -->
+<!--                                levels = normalized_skill_summary %>% -->
+<!--                                  filter(Work == "Non-Student") %>% -->
+<!--                                  arrange(desc(`Normalized Skill count`)) %>% -->
+<!--                                  pull(`Skill name`))) -->
+
+<!-- ggplot(normalized_skill_summary, aes(x = `Skill name`, y = `Normalized Skill count`, fill = Work)) + -->
+<!--   geom_bar(stat = "identity", position = "dodge") +   -->
+<!--   labs(title = "Normalized Skill Distribution: Students vs Non-Students",  -->
+<!--        x = "Skill",  -->
+<!--        y = "Proportion of Total Observations") + -->
+<!--   theme(axis.text.x = element_text(angle = 45, hjust = 1),   -->
+<!--         legend.title = element_blank()) +   -->
+<!--   scale_fill_manual(values = c("Student" = "skyblue", "Non-Student" = "lightgreen"))   -->
+<!-- ``` -->
+
+This also lets us compare how the skills are distributed within the groups of students and non students to see what each group is more focused 
+
+```{r}
+total_skill_count_student <- student_data %>%
+  select(-Education, -Work) %>%
+  summarise(across(everything(), sum, na.rm = TRUE)) %>%
+  sum()
+
+total_skill_count_non_student <- non_student_data %>%
+  select(-Education, -Work) %>%
+  summarise(across(everything(), sum, na.rm = TRUE)) %>%
+  sum()
+
+normalized_skill_summary <- combined_skill_summary %>%
+  mutate(`Normalized Skill count` = case_when(
+    Work == "Student" ~ `Skill count` / total_skill_count_student, 
+    Work == "Non-Student" ~ `Skill count` / total_skill_count_non_student
+  ))
+
+normalized_skill_summary <- normalized_skill_summary %>%
+  mutate(`Skill name` = factor(`Skill name`, 
+                               levels = normalized_skill_summary %>%
+                                 filter(Work == "Non-Student") %>%
+                                 arrange(desc(`Normalized Skill count`)) %>%
+                                 pull(`Skill name`)))
+
+ggplot(normalized_skill_summary, aes(x = `Skill name`, y = `Normalized Skill count`, fill = Work)) +
+  geom_bar(stat = "identity", position = "dodge") +  
+  labs(title = "Normalized Skill Distribution: Students vs Non-Students", 
+       x = "Skill", 
+       y = "Proportion of Total Skill Count") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1), 
+        legend.title = element_blank()) +  
+  scale_fill_manual(values = c("Student" = "skyblue", "Non-Student" = "lightgreen"))  
+```
+### Results 
+
+This is good representation of what the focus is when comparing skill groups between students and non students. For those with active data skill jobs, the skills seems to be more skewed towards Machine learning algorithms, learning frameworks, visualization tools, computer vision and Natural Language Processing Methodologies. These are often advanced level skills that come with years of experience and it makes sense that this data indicates the same. 
+
+And for students the skill categories for which their proportions are higher in includes Programming languages , Inetgrated development Environments, AML tools and Cloud computing. Students when they start off are often more exposed to different languages , IDE's and tools and are not usually specialised in one particular framework. This is the stage where they are the most flexible and will usually have a wider scope while they decide one which field to go into next Once they get into a profession, their choices usually narrow down to the industry standards that have been put into place affect the proportion of skills that they have while their focus becomes a lot more narrower. 
+
+We also get a general spread of how skills are distributed across both groups with the highest proportion for both groups falling in the skill groups of machine learning algorithms, IDE , Computer vision (this includes general purpose image and vido tools, segmentation methods, detection methjods, classification and otehr generative networks ) and programming languages. 
+
+
+
+
