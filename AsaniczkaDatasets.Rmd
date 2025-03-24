@@ -185,6 +185,8 @@ print(plot_negative)
 
 ```
 
+We can see tha Data science is an ever changing field with skills coming in and out of relevance at a record pace. While certain skills such as programming language expertise, business intelligence skills and soft skills will always enjoy a place of eternal relevance, niche skills either go out of relevance or will be outsourced to specialised AI models.
+  
 Click here to go back to the main page 
 
 - [Main Page](https://htmlpreview.github.io/?https://github.com/jerryjerald27/DATA607_Project3/blob/main/FInal_Project_Deliverable.html) 
