@@ -34,15 +34,18 @@ Our roles within the project were split between these two sources. While Miraj p
 
 #### Job listings 
 
+Source : https://www.kaggle.com/datasets/asaniczka/data-science-job-postings-and-skills
+
 The Asaniczka job listing datasets from two consecutive years where chosen as part of this analysis . This dataset provides a raw dump of data science-related job postings collected from LinkedIn and includes information about job titles, companies, locations, search parameters, and other relevant details. Its main objective was to provide insights into the data science job market and the skills that were in high demand for this career 
 
-https://www.kaggle.com/datasets/asaniczka/data-science-job-postings-and-skills
 
 Follow this link to see the data cleanup transformation and analysis process for this dataset. 
 
 - [Asaniczka Job listing dataets](https://htmlpreview.github.io/?https://github.com/jerryjerald27/DATA607_Project3/blob/main/AsaniczkaDatasets.html) 
 
 #### Survey Data 
+
+Source: https://www.kaggle.com/competitions/kaggle-survey-2022/data
 
 THe Kaggle annual Data science and Machine learning survey dataset was chosen for this analysis. The data set has around 20,000 responses from 171 different countries . The questions for the survey mainly revolved around the different data science and machine learning technologies and skills that were being commonly used among a large variety of people with different educational and work related backgrounds.
 
