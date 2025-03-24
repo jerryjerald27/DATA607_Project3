@@ -109,4 +109,6 @@ ggplot(category_counts, aes(x = reorder(skill_category, -total_count), y = total
 The interest in Programming languages is seen across the board with workers students and the job market. In addition to that here we also see that Students focus more on learning Machine learning algorithms and different IDEs and learning frameworks, while the job market is more reliant on people with experitis in Business Intelligence tools. Clout computing is another field that is in the middle of the pack when it comes to students but in high demand in the job marketplace. 
  
 
+Click here to go back to the main page 
 
+- [Main Page](https://htmlpreview.github.io/?https://github.com/jerryjerald27/DATA607_Project3/blob/main/FInal_Project_Deliverable.html) 

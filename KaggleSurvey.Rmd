@@ -219,5 +219,7 @@ And for students the skill categories for which their proportions are higher in 
 We also get a general spread of how skills are distributed across both groups with the highest proportion for both groups falling in the skill groups of machine learning algorithms, IDE , Computer vision (this includes general purpose image and vido tools, segmentation methods, detection methjods, classification and otehr generative networks ) and programming languages. 
 
 
+Click here to go back to the main page 
 
+- [Main Page](https://htmlpreview.github.io/?https://github.com/jerryjerald27/DATA607_Project3/blob/main/FInal_Project_Deliverable.html) 
 
