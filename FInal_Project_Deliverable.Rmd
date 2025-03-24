@@ -58,7 +58,7 @@ Once we had both seperate analyis, a comparison analsis was conducted to see how
 Follow this link to see the combined analysis 
 
 
-- [Combined analysis](.\CombinedAnalysis.html) 
+- [Combined analysis](https://htmlpreview.github.io/?https://github.com/jerryjerald27/DATA607_Project3/blob/main/CombinedAnalysis.html) 
 
 
 
