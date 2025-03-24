@@ -362,21 +362,21 @@ display: none;
 <p>The data set we are going to analyse in this part of the project is a
 Kaggle Data science and Machine learning survey that has around 20,000
 responses from 171 different countries . The questions for the survey
-mainly revolved around the different data science and amchine learning
+mainly revolved around the different data science and machine learning
 technologies and skills that were being commonly used among a large
 variety of people with different educational and work related
 backgrounds.</p>
 <p>We intend to use this data to analyse first how data skill proportion
 across different categories compare between students and non students.
-And further how it compares to our previous datasets that involve job
+And further how it compares to our previous data sets that involve job
 posting skills</p>
 </div>
 <div id="data-tidying-and-cleanup" class="section level4">
 <h4>Data tidying and cleanup</h4>
 <p>This a great source of information albeit having a weirdly structured
 data set. Each multiple choice question in this survey is split into a
-certain number of columns depending on how many choicses there are. For
-eg Question 7 , a question about the programnming languages being used
+certain number of columns depending on how many choices there are. For
+eg Question 7 , a question about the programming languages being used
 has 13 options , and each of these options get their own column named
 Q7_PART_1 to Q7_Part_12 and then one for the option “Other” named
 Q7_Other.</p>
@@ -408,7 +408,7 @@ Work column specifies not employed.</p>
 ## #   Q10_Part_5 &lt;chr&gt;, Q10_Part_6 &lt;chr&gt;, Q10_Part_7 &lt;chr&gt;, Q10_Part_8 &lt;chr&gt;, …</code></pre>
 <p>Our next task is to combine the Question columns so that every
 multiple choice answer for a particular question can be represented in
-just one column with the answers seperated by commas. We can then name
+just one column with the answers separated by commas. We can then name
 this column with the particular skill category that is being addressed
 with this question</p>
 <pre><code>## # A tibble: 83 × 15
@@ -471,13 +471,13 @@ in frequency.</p>
 <p>While we can notice a trend in the distribution of different data
 science skill categories, we also notice a major disparity between the
 students and non students. Initially we assumed that this might just be
-because people at work might tend to have skillset that is much wider
+because people at work might tend to have skill set that is much wider
 reaching than a students, we immediately noticed the other issue , the
 disparity in numbers between students and non students.</p>
-<p>In this dataset we have a lot more non-students than students. So its
-essential that we normalise the data to get a better representation of
-the skill set distribution</p>
-<!-- Normalising for the numbers we get  -->
+<p>In this data set we have a lot more non-students than students. So
+its essential that we normalize the data to get a better representation
+of the skill set distribution</p>
+<!-- Normalizing for the numbers we get  -->
 <!-- ```{r} -->
 <!-- total_students <- df4 %>%  -->
 <!--   filter(Work == "Student") %>%  -->
@@ -559,10 +559,10 @@ and Natural Language Processing Methodologies. These are often advanced
 level skills that come with years of experience and it makes sense that
 this data indicates the same.</p>
 <p>And for students the skill categories for which their proportions are
-higher in includes Programming languages , Inetgrated development
+higher in includes Programming languages , Integrated development
 Environments, AML tools and Cloud computing. Students when they start
 off are often more exposed to different languages , IDE’s and tools and
-are not usually specialised in one particular framework. This is the
+are not usually specialized in one particular framework. This is the
 stage where they are the most flexible and will usually have a wider
 scope while they decide one which field to go into next Once they get
 into a profession, their choices usually narrow down to the industry
@@ -571,8 +571,8 @@ that they have while their focus becomes a lot more narrower.</p>
 <p>We also get a general spread of how skills are distributed across
 both groups with the highest proportion for both groups falling in the
 skill groups of machine learning algorithms, IDE , Computer vision (this
-includes general purpose image and vido tools, segmentation methods,
-detection methjods, classification and otehr generative networks ) and
+includes general purpose image and video tools, segmentation methods,
+detection methods, classification and other generative networks ) and
 programming languages.</p>
 <p>Click here to go back to the main page</p>
 <ul>

@@ -27,7 +27,7 @@ head(job_data)
 ```
 
 
-Giving categories to the job skills dataset 
+Giving categories to the job skills data set 
 
 
 ```{r include=FALSE}
@@ -87,7 +87,7 @@ ggplot(category_counts, aes(x = reorder(skill_category, proportion), y = proport
 ```
 
 
-Well this just goes on to show that job listings enundate their requirement lists with mentions of programming languages. It takes up so much of the skills section that it accounts for almost 80 percent of the skills being required. As we had seen the graphs earlier, we know that Python , R , SQL and JAVA dominated the uncategorized skills section. So this is no suprise. To get a better spread we could use a logarithmic scale to better represent this proportion. 
+Well this just goes on to show that job listings inundate their requirement lists with mentions of programming languages. It takes up so much of the skills section that it accounts for almost 80 percent of the skills being required. As we had seen the graphs earlier, we know that Python , R , SQL and JAVA dominated the un-categorized skills section. So this is no surprise. To get a better spread we could use a logarithmic scale to better represent this proportion. 
 
 ```{r}
 ggplot(category_counts, aes(x = reorder(skill_category, -total_count), y = total_count)) +
@@ -101,12 +101,12 @@ ggplot(category_counts, aes(x = reorder(skill_category, -total_count), y = total
   theme(axis.text.x = element_text(angle = 45, hjust = 1))
 ```
  
- This we believe is more representative of the actual spread of skills in demand for the job market in 2024. With Programming languages still in high demand, but we see Business Intelligence tools come in a close second. Visualisation tools follow suit . 2024 seems to also be the year of Cloud computing and Big data products. We can compare this with the graphs earlier from the Kaggle data to see how this data compares to the students and the employee graphs. 
+ This we believe is more representative of the actual spread of skills in demand for the job market in 2024. With Programming languages still in high demand, but we see Business Intelligence tools come in a close second. Visualization tools follow suit . 2024 seems to also be the year of Cloud computing and Big data products. We can compare this with the graphs earlier from the Kaggle data to see how this data compares to the students and the employee graphs. 
  
  
 ![Kagle](https://github.com/jerryjerald27/DATA607_Project3/blob/main/KaggleSurvey.jpg?raw=true)
 
-The interest in Programming languages is seen across the board with workers students and the job market. In addition to that here we also see that Students focus more on learning Machine learning algorithms and different IDEs and learning frameworks, while the job market is more reliant on people with experitis in Business Intelligence tools. Clout computing is another field that is in the middle of the pack when it comes to students but in high demand in the job marketplace. 
+The interest in Programming languages is seen across the board with workers students and the job market. In addition to that here we also see that Students focus more on learning Machine learning algorithms and different IDEs and learning frameworks, while the job market is more reliant on people with expertise in Business Intelligence tools. Clout computing is another field that is in the middle of the pack when it comes to students but in high demand in the job marketplace. 
  
 
 Click here to go back to the main page 

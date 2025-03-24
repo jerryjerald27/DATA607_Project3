@@ -20,7 +20,7 @@ library(stringr)
 
 ## Data cleanup
 
-Dataset 1: Year 2024
+Data set 1: Year 2024
 
 ```{r}
 #Import the files
@@ -65,7 +65,7 @@ ggplot(df2_job_skills_counts %>% slice_max(count, n = 25), aes(x = reorder(job_s
   theme_minimal()
 ```
 
-Dataset 2: Year 2023
+Data set 2: Year 2023
 ```{r}
 #Import file
 data2 <- read.csv("https://raw.githubusercontent.com/jerryjerald27/DATA607_Project3/refs/heads/main/postings.csv")
@@ -109,7 +109,7 @@ ggplot(df3_job_skills_counts %>% slice_max(count, n = 25), aes(x = reorder(job_s
 Combine the counts for the job skills
 
 ```{r}
-# Merge the two dataframes on job_skills
+# Merge the two data frames on job_skills
 combined_job_skills <- full_join(df2_job_skills_counts, df3_job_skills_counts, 
                                         by = "job_skills", suffix = c("_df2", "_df3"))
 
@@ -185,7 +185,7 @@ print(plot_negative)
 
 ```
 
-We can see tha Data science is an ever changing field with skills coming in and out of relevance at a record pace. While certain skills such as programming language expertise, business intelligence skills and soft skills will always enjoy a place of eternal relevance, niche skills either go out of relevance or will be outsourced to specialised AI models.
+We can see that Data science is an ever changing field with skills coming in and out of relevance at a record pace. While certain skills such as programming language expertise, business intelligence skills and soft skills will always enjoy a place of eternal relevance, niche skills either go out of relevance or will be outsourced to specialized AI models.
   
 Click here to go back to the main page 
 
