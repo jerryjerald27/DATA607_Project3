@@ -91,6 +91,7 @@ data_long_updated <- data_long %>%
   mutate(across(.cols = -c(Education, Work),  
                 .fns = ~ sapply(., count_answers)))  
 print(data_long_updated)
+# write.csv(data_long_updated, "Final_counts_KaggleSurvey.csv")
 ```
 
 We can also now start separating the Students from the non students and plot a bar chart to see how the different skill categories compare in frequency.  

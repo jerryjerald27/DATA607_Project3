@@ -1,0 +1,74 @@
+---
+title: "DATA 607 Project 3"
+author: 'Team 2: Miraj and Jerald'
+date: "2025-03-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Introduction 
+
+This is our submission for our team's project based on the question "Which are the most valued
+data science skills" . We aimed to tackle this problem by analysing real world data sourced from multiple
+locations , and try and capture the different views on the role of a data scientist in this modern era.
+
+## Team members
+
+The members of this team are Miraj Patel and Jerald Melukkaran 
+
+## Choosing the datasets 
+
+The initial plan include a variety of data within this project to better understand the skill set requirements. The sources in the project proposal included job listings, survey data, university course catalogs, and technical blogs. In the initial proposal period our team went down from four to two and to better adjust to the scope that can be handled by a two person team, we had to limit our sources to job listings and survey data. In this project we import, tidy, clean up, manage and analyse two job listings datasets and a survey Datasets
+
+
+## Team member roles 
+
+Our roles within the project were split between these two sources. While Miraj primarily handled the collection and analysis of the jobb listings datasets, Jerald was responsible for managing the survey dataset and doing a combined analyis of both sources.
+
+
+## Data sources 
+
+#### Job listings 
+
+The Asaniczka job listing datasets from two consecutive years where chosen as part of this analysis . This dataset provides a raw dump of data science-related job postings collected from LinkedIn and includes information about job titles, companies, locations, search parameters, and other relevant details. Its main objective was to provide insights into the data science job market and the skills that were in high demand for this career 
+
+https://www.kaggle.com/datasets/asaniczka/data-science-job-postings-and-skills
+
+Follow this link to see the data cleanup transformation and analysis process for this dataset. 
+
+- [Asaniczka Job listing dataets](https://htmlpreview.github.io/?https://github.com/jerryjerald27/DATA607_Project3/blob/main/AsaniczkaDatasets.html) 
+
+#### Survey Data 
+
+THe Kaggle annual Data science and Machine learning survey dataset was chosen for this analysis. The data set has around 20,000 responses from 171 different countries . The questions for the survey mainly revolved around the different data science and machine learning technologies and skills that were being commonly used among a large variety of people with different educational and work related backgrounds.
+
+Follow this link to see the data cleanup transformation and analysis process for this dataset. 
+
+
+- [Kaggle Survey datasets](https://htmlpreview.github.io/?https://github.com/jerryjerald27/DATA607_Project3/blob/main/KaggleSurvey.html) 
+
+## Combined analyis
+
+Once we had both seperate analyis, a comparison analsis was conducted to see how survey data from students and those employed in the data science field compared to the current job market to see if there were any noticeable insights 
+
+Follow this link to see the combined analysis 
+
+
+- [Combined analysis](.\CombinedAnalysis.html) 
+
+
+
+## Conclusion 
+
+
+Through our analysis of job listings and survey data, we were able to gain valuable insights into the most valued skills in data science. The job listings dataset highlighted the demand for specific technical skills, programming languages, and tools preferred by employers, while the survey data provided a perspective on what current professionals and aspiring data scientists are focusing on in their learning and work.
+
+Our combined analysis revealed key alignments and discrepancies between industry expectations and individual skill development. While widely used tools like Python, SQL, and machine learning frameworks remained dominant across both datasets, we also observed emerging trends in cloud computing, big data technologies, and soft skills such as communication and business acumen.
+
+This project emphasized the importance of continuously adapting to the evolving data science landscape. For aspiring data scientists, aligning their skill set with industry demands can enhance career prospects, while for educators and organizations, understanding these trends can help shape more effective training programs.
+
+Despite the challenges of reducing our initial scope due to team size, we successfully conducted a thorough analysis that provided meaningful insights. Moving forward, further research incorporating additional data sources, such as company-specific hiring trends and skill progression over time, could offer even deeper perspectives into the field of data science.

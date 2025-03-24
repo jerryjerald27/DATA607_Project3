@@ -1,0 +1,84 @@
+"","Work","Education","Notebook products","Visualisation tools","Learning frameworks","ML algorithms","Computer vision","NLP methods","Cloud computing","Machine learning","Big data products","BI tools","AML tools","Programming language","IDE"
+"1","Business Analyst","Bachelor’s degree",219,340,292,457,261,92,373,345,482,329,191,444,659
+"2","Business Analyst","Doctoral degree",28,56,70,111,75,31,44,39,81,62,20,80,94
+"3","Business Analyst","I prefer not to answer",7,13,11,19,10,4,5,5,16,8,4,31,18
+"4","Business Analyst","Master’s degree",361,686,659,1031,344,119,570,454,752,631,238,833,1244
+"5","Business Analyst","No formal education past high school",7,16,12,17,3,1,14,15,31,26,9,18,22
+"6","Business Analyst","Professional degree",40,57,53,82,46,22,66,52,91,58,23,97,106
+"7","Business Analyst","Some college/university study without earning a bachelor’s degree",20,31,21,38,7,5,33,32,43,25,14,31,60
+"8","DBA/Database Engineer","Bachelor’s degree",23,58,45,74,24,6,63,44,110,45,29,109,129
+"9","DBA/Database Engineer","Doctoral degree",9,12,10,17,1,1,16,8,20,10,4,22,31
+"10","DBA/Database Engineer","I prefer not to answer",5,7,4,5,1,1,17,13,42,13,4,20,19
+"11","DBA/Database Engineer","Master’s degree",60,88,96,150,72,35,105,68,150,67,48,144,194
+"12","DBA/Database Engineer","No formal education past high school",1,1,1,1,1,1,1,1,1,1,1,3,3
+"13","DBA/Database Engineer","Professional degree",8,10,12,19,1,3,14,14,28,10,3,23,26
+"14","DBA/Database Engineer","Some college/university study without earning a bachelor’s degree",6,5,7,8,1,1,5,6,18,4,3,23,20
+"15","Data Analyst","Bachelor’s degree",530,951,758,1210,544,209,721,621,1153,720,388,1069,1600
+"16","Data Analyst","Doctoral degree",56,130,132,242,83,37,83,78,145,80,63,172,188
+"17","Data Analyst","I prefer not to answer",20,41,39,67,13,23,13,10,23,12,6,45,66
+"18","Data Analyst","Master’s degree",671,1402,1237,1922,842,300,928,770,1426,1007,478,1543,2307
+"19","Data Analyst","No formal education past high school",12,15,20,24,9,3,7,4,14,11,1,18,26
+"20","Data Analyst","Professional degree",64,122,87,143,80,27,89,58,115,89,51,139,212
+"21","Data Analyst","Some college/university study without earning a bachelor’s degree",59,90,78,113,52,44,95,88,160,91,55,128,194
+"22","Data Engineer","Bachelor’s degree",166,264,261,365,246,77,188,189,380,147,83,346,499
+"23","Data Engineer","Doctoral degree",58,86,94,164,201,70,77,75,98,42,33,116,153
+"24","Data Engineer","I prefer not to answer",5,12,13,23,24,2,10,12,15,7,6,25,21
+"25","Data Engineer","Master’s degree",287,444,503,795,555,249,285,223,517,235,105,594,803
+"26","Data Engineer","No formal education past high school",3,5,7,5,10,1,3,4,7,4,2,5,9
+"27","Data Engineer","Professional degree",19,20,25,40,29,16,22,20,34,10,8,34,48
+"28","Data Engineer","Some college/university study without earning a bachelor’s degree",23,37,45,72,25,23,24,24,56,21,11,54,53
+"29","Data Scientist","Bachelor’s degree",959,1614,1991,3079,2201,901,901,836,1300,716,553,1540,2491
+"30","Data Scientist","Doctoral degree",500,1149,1453,2389,1632,640,576,483,826,318,274,1248,1778
+"31","Data Scientist","I prefer not to answer",42,60,80,112,93,32,36,37,57,31,18,77,117
+"32","Data Scientist","Master’s degree",1759,3699,4547,7383,4911,2368,1800,1639,2808,1388,1125,3511,5460
+"33","Data Scientist","No formal education past high school",18,21,35,64,38,22,12,12,21,9,4,32,41
+"34","Data Scientist","Professional degree",107,218,292,393,279,150,140,120,188,121,78,226,309
+"35","Data Scientist","Some college/university study without earning a bachelor’s degree",73,123,151,248,183,90,89,54,102,62,37,164,216
+"36","Machine Learning Engineer","Bachelor’s degree",521,695,1038,1722,2165,751,498,480,642,258,295,827,1329
+"37","Machine Learning Engineer","Doctoral degree",175,288,409,734,994,295,159,158,186,83,141,358,494
+"38","Machine Learning Engineer","I prefer not to answer",20,29,54,73,111,38,26,33,49,22,26,37,63
+"39","Machine Learning Engineer","Master’s degree",667,1011,1499,2477,3246,1115,613,573,833,346,396,1199,1699
+"40","Machine Learning Engineer","No formal education past high school",13,13,29,46,75,5,14,14,29,18,12,26,32
+"41","Machine Learning Engineer","Professional degree",34,43,58,105,87,43,36,29,49,21,20,56,75
+"42","Machine Learning Engineer","Some college/university study without earning a bachelor’s degree",67,86,145,233,247,104,73,75,100,48,46,128,166
+"43","Other","Bachelor’s degree",423,755,672,1092,641,193,773,681,1166,668,400,889,1412
+"44","Other","Doctoral degree",167,384,408,732,538,117,255,197,322,184,118,505,685
+"45","Other","I prefer not to answer",29,30,43,66,68,31,42,41,47,19,18,61,68
+"46","Other","Master’s degree",637,1258,1214,2005,1186,312,1029,899,1497,848,510,1433,2214
+"47","Other","No formal education past high school",14,40,41,69,74,25,33,36,59,32,21,51,75
+"48","Other","Professional degree",76,147,139,204,99,58,154,133,196,111,77,152,236
+"49","Other","Some college/university study without earning a bachelor’s degree",62,92,93,110,51,3,92,86,164,83,54,131,177
+"50","Product/Project Manager","Bachelor’s degree",159,225,259,390,309,80,242,204,313,196,102,359,457
+"51","Product/Project Manager","Doctoral degree",39,79,99,177,169,71,81,66,108,63,31,121,175
+"52","Product/Project Manager","I prefer not to answer",6,11,8,7,9,4,10,5,13,4,1,19,28
+"53","Product/Project Manager","Master’s degree",335,572,667,1076,713,301,472,405,682,379,181,785,1052
+"54","Product/Project Manager","No formal education past high school",1,2,6,5,7,1,4,5,3,3,1,5,5
+"55","Product/Project Manager","Professional degree",36,73,60,108,75,38,40,21,63,36,19,96,132
+"56","Product/Project Manager","Some college/university study without earning a bachelor’s degree",17,30,36,44,33,6,32,19,56,17,8,49,52
+"57","Research Scientist","Bachelor’s degree",70,128,150,229,250,64,104,76,134,59,50,160,231
+"58","Research Scientist","Doctoral degree",686,1272,1612,2813,2981,878,721,594,961,355,509,1724,2254
+"59","Research Scientist","I prefer not to answer",16,24,39,54,49,25,27,17,23,12,9,29,48
+"60","Research Scientist","Master’s degree",350,648,723,1234,1180,359,345,298,508,221,243,784,1131
+"61","Research Scientist","No formal education past high school",2,6,6,15,13,1,1,1,3,1,1,9,16
+"62","Research Scientist","Professional degree",63,102,121,226,178,53,91,72,138,68,65,142,176
+"63","Research Scientist","Some college/university study without earning a bachelor’s degree",14,22,24,38,37,20,18,19,24,6,13,22,29
+"64","Software Engineer","Bachelor’s degree",869,1358,1506,2392,2352,704,1137,1116,1793,653,542,2317,2840
+"65","Software Engineer","Doctoral degree",73,169,215,356,340,96,113,95,148,47,50,299,334
+"66","Software Engineer","I prefer not to answer",30,56,49,62,25,4,54,31,48,16,16,111,120
+"67","Software Engineer","Master’s degree",806,1224,1457,2291,2229,644,1047,951,1680,623,516,2240,2519
+"68","Software Engineer","No formal education past high school",27,31,45,69,109,20,39,19,37,9,4,89,73
+"69","Software Engineer","Professional degree",79,137,156,262,166,94,122,107,193,75,64,254,289
+"70","Software Engineer","Some college/university study without earning a bachelor’s degree",113,164,189,311,349,102,139,130,198,63,54,339,341
+"71","Statistician","Bachelor’s degree",60,119,69,142,31,15,101,66,160,82,81,150,164
+"72","Statistician","Doctoral degree",42,131,76,216,53,31,64,52,83,43,21,150,169
+"73","Statistician","Master’s degree",82,219,180,318,85,54,147,99,173,122,55,234,302
+"74","Statistician","No formal education past high school",2,1,1,1,1,1,1,1,2,1,1,3,3
+"75","Statistician","Professional degree",7,23,25,33,1,1,17,13,31,26,11,23,44
+"76","Statistician","Some college/university study without earning a bachelor’s degree",10,20,19,37,17,1,16,16,27,15,11,27,34
+"77","Student","Bachelor’s degree",2837,3908,4129,6307,5993,1424,4469,4623,5802,2918,2798,6646,8747
+"78","Student","Doctoral degree",255,425,507,839,810,246,402,386,508,277,308,568,803
+"79","Student","I prefer not to answer",69,100,101,137,141,62,85,94,119,54,25,158,244
+"80","Student","Master’s degree",1551,2545,2645,4101,3568,940,2619,2592,3333,1786,1632,3880,5282
+"81","Student","No formal education past high school",42,54,56,70,99,29,75,89,96,42,32,106,151
+"82","Student","Professional degree",75,98,83,162,57,18,119,121,175,94,77,195,251
+"83","Student","Some college/university study without earning a bachelor’s degree",478,594,624,970,959,178,723,794,1007,457,452,1175,1475

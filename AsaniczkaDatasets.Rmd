@@ -132,6 +132,8 @@ ggplot(combined_job_skills_counts %>% slice_max(total_count, n = 25), aes(x = re
        x = "Job Skill",
        y = "Count") +
   theme_minimal()
+
+
 ```
 
 Difference between the two data sets. This will show the increase or decrease in the job skills from 2023 to 2024.
